@@ -88,9 +88,7 @@ module StatsD
 
       # Utility function to remove invalid characters from a StatsD metric name
       def normalize_name(name)
-        # Fast path when no normalization is needed to avoid copying the string
-        return name unless /[:|@]/.match?(name)
-        name.tr(':|@', '_')
+        name
       end
 
       def generate_generic_datagram(name, value, type, sample_rate, tags)
